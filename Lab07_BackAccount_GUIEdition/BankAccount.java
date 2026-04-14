@@ -27,11 +27,11 @@ public abstract class BankAccount{
     }
 
     //adds money into balance
-    public void deposit(double amount) {
+    public String deposit(double amount) {
         balance += amount;
-        System.out.println("New Balance: $" + String.format("%.2f", balance));
+        return "New Balance: $" + String.format("%.2f", balance);
     }
 
     //subtract money from account
-    abstract public void withdraw(double amount);
+    abstract public String withdraw(double amount);
 }

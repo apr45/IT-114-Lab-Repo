@@ -6,7 +6,7 @@ public class CheckingAccount extends BankAccount{
 
     //subtract money from account; imposes fees if necessary
     @Override
-    public void withdraw(double amount){
+    public String withdraw(double amount){
         double overdraftFee = 35.00;
         double newBalance = getBalance() - amount;
 
@@ -14,10 +14,10 @@ public class CheckingAccount extends BankAccount{
         if (amount > getBalance()){
             newBalance -= overdraftFee;
             setBalance(newBalance);
-            System.out.println("Overdraft! $35.00 fee applied. New Balance: $-" + String.format("%.2f", getBalance() * -1));
+            return "Overdraft! $35.00 fee applied. New Balance: $-" + String.format("%.2f", getBalance() * -1);
         } else{
             setBalance(newBalance);
-            System.out.println("New Balance: $" + String.format("%.2f", getBalance()));
+            return "New Balance: $" + String.format("%.2f", getBalance());
         }
     }
 }

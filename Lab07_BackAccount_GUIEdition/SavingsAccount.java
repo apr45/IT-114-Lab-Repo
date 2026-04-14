@@ -6,12 +6,12 @@ public class SavingsAccount extends BankAccount{
 
     //subtract money from account if necessary
     @Override
-    public void withdraw(double amount){
+    public String withdraw(double amount){
         if (amount > getBalance())
-            System.out.println("Transaction Denied: Insufficient funds");
+            return "Transaction Denied: Insufficient funds";
         else{
             setBalance(getBalance() - amount);
-            System.out.println("New Balance: $" + String.format("%.2f", getBalance()));
+            return "New Balance: $" + String.format("%.2f", getBalance());
         }
     }
 }
